@@ -3,31 +3,26 @@
 using namespace std;
 
 unsigned int tspProblem::computeMinTourCost(int i, bitset<32> bits){
-	unsigned long mask = bits.to_ulong();
-	if (mask == 0) {
+	unsigned mask = bits.to_ulong();
+	if (mask == 0)
 		return W->getEdgeCost(i, 0);
-	}
-	else if (this->D[i][mask] >= 0){
+
+	if (D[i][mask] != -1)
 		return D[i][mask];
-	}
+	
+	int best_j{ INT_MAX };
+	int bestCost{ INT_MAX };
 
-	int bestCost = INT_MAX;
-	int best_j = -1;
-	bool foundAtLeastOneVertex = false;
-
-
-	for (size_t j = 0; j < this->size; j++) {
-		int aCost = W->getEdgeCost(i, j) + computeMinTourCost(j, fullMask & ~(1 << j));
-		if (aCost < bestCost) {
-			foundAtLeastOneVertex = true;
-			bestCost = aCost;
+	for (int j = 0; j < mask; j++) {
+		int cost = computeMinTourCost(j, bits.reset(j)) + W->getEdgeCost(i, j);
+		bits.set(j);
+		if (cost < bestCost) {
+			bestCost = cost;
 			best_j = j;
 		}
 	}
-	if (foundAtLeastOneVertex) {
-		D[best_j][mask] = bestCost;
-		P[i][mask] = best_j;
-	}
+	D[i][mask] = bestCost;
+	P[i][mask] = best_j;
 	return bestCost;
 }
 

@@ -17,9 +17,10 @@ private:
 public:
 	// constructor which takes in a pointer
 	// to a graph.
-	tspProblem(Graph* g) : W(g), size(W.getNumVertices()) {
+	tspProblem(Graph* g) : W(g), size(g->getNumVertices()) {
 		fullMask = (1 << size); // 1*2^size, we can do powers
 								// quickly via bitshifts.
+
 		D.resize(size, vector<int>(fullMask, -1));
 		P.resize(size, vector<int>(fullMask, -1));
 	}
