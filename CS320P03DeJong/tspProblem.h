@@ -8,7 +8,7 @@ class tspProblem {
 private:
 	vector<vector<int>> D;
 	vector<vector<int>> P;
-	Graph W*;
+	Graph* W;
 	unsigned int computeMinTourCost(int i, bitset<32> bits);
 	size_t size;
 	const size_t MAX_BITS = 32;
