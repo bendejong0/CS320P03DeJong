@@ -9,9 +9,13 @@ int main() {
 	ifstream f = getFile();
 	assert(f.is_open());
 	g->read(f);
+	cout << "g: " << endl;
+	g->print();
+	cout << endl;
 	bitset<32> s;
-	tspProblem(g);
-
+	tspProblem salesperson(g);
+	salesperson.solve();
+	delete g;
 
 
 }
