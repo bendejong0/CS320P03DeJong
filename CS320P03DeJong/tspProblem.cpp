@@ -76,6 +76,6 @@ void tspProblem::printPath() const {
 		cout << W->getVertexName(vertex);
 		bits.reset(vertex);
 	}
-	cout << "," << W->getVertexName(0) << "> ";
+	cout << "," << W->getVertexName(0) << ">";
 }
 
