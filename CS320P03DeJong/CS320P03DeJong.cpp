@@ -2,28 +2,32 @@
 #include "tspProblem.h"
 #include <bitset>
 
-ifstream getFile();
+ifstream getFile(string& filename);
 
 int main() {
-	Graph* g = new Graph();
-	ifstream f = getFile();
-	assert(f.is_open());
-	g->read(f);
-	cout << "g: " << endl;
-	g->print();
-	cout << endl;
-	bitset<32> s;
-	tspProblem salesperson(g);
-	salesperson.solve();
-	delete g;
+    Graph* g = new Graph();
+    string filename;
+    ifstream f = getFile(filename);
+    assert(f.is_open());
+    g->read(f);
 
+    cout << filename << " Contents: " << endl << endl;
+    g->print();
+    cout << endl;
 
+    cout << "*********Output according to " << filename << " contents: " << endl << endl;
+    tspProblem salesperson(g);
+    salesperson.solve();
+    cout << endl;
+
+    delete g;
+    return 0;
 }
 
-ifstream getFile() {
-	cout << "Please input file name: ";
-	string s;
-	cin >> s;
-	ifstream f(s, ios::in);
-	return f;
+ifstream getFile(string& filename) {
+    cout << "Please input file name: ";
+    cin >> filename;
+    cout << endl;
+    ifstream f(filename, ios::in);
+    return f;
 }

@@ -42,5 +42,29 @@
     </Text>
     <Text Include="input4.txt" />
     <Text Include="input5.txt" />
+    <Text Include="graph6.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+    <Text Include="graph7.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+    <Text Include="graph8.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+    <Text Include="graph2.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+    <Text Include="graph3.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+    <Text Include="graph1.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+    <Text Include="graph4.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+    <Text Include="graph5.txt">
+      <Filter>Source Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

@@ -30,7 +30,7 @@ int tspProblem::computeMinTourCost(int vertex, bitset<32> bits){
 	for (int i = 0; i < size; i++) {
 		if (bits[i]) {
 			bitset<32> b = bits;
-			b.reset(i);
+			b.reset(i); // sets bits[i] = 0;
 			int cost = computeMinTourCost(i, b) + W->getEdgeCost(vertex, i);
 			if (cost < 0 || cost == INT_MAX) continue;
 			if (cost < bestCost) {

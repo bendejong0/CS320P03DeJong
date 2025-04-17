@@ -135,6 +135,14 @@
     <ClInclude Include="tspProblem.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="graph1.txt" />
+    <Text Include="graph2.txt" />
+    <Text Include="graph3.txt" />
+    <Text Include="graph4.txt" />
+    <Text Include="graph5.txt" />
+    <Text Include="graph6.txt" />
+    <Text Include="graph7.txt" />
+    <Text Include="graph8.txt" />
     <Text Include="input1.txt" />
     <Text Include="input2.txt" />
     <Text Include="input3.txt" />
