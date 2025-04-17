@@ -22,7 +22,6 @@ int tspProblem::computeMinTourCost(int vertex, bitset<32> bits){
 		return D[vertex][mask];
 	
 	int bestCost = INT_MAX;
-	bool visitedNode{ false };
 
 	// If two nodes dont connect, then D[i][j] is gonna be INT_MAX;
 
@@ -34,7 +33,6 @@ int tspProblem::computeMinTourCost(int vertex, bitset<32> bits){
 			int cost = computeMinTourCost(i, b) + W->getEdgeCost(vertex, i);
 			if (cost < 0 || cost == INT_MAX) continue;
 			if (cost < bestCost) {
-					visitedNode = true;
 					bestCost = cost;
 					P[vertex][mask] = i;
 
@@ -47,6 +45,7 @@ int tspProblem::computeMinTourCost(int vertex, bitset<32> bits){
 
 void tspProblem::solve(){
 	bitset<32> bits;
+	// linear time, 
 	for (int i = 1; i < size; i++)
 		bits.set(i);
 
@@ -76,6 +75,6 @@ void tspProblem::printPath() const {
 		cout << W->getVertexName(vertex);
 		bits.reset(vertex);
 	}
-	cout << "," << W->getVertexName(0) << "> ";
+	cout << "," << W->getVertexName(0) << ">";
 }
 
